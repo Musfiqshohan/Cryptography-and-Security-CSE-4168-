@@ -1,0 +1,72 @@
+from Crypto.Cipher import AES
+import codecs
+
+def main():
+    f1 = open("aes_ciphertext.hex", "r")
+    # f2 = open("aes_iv.hex", "r")
+    # f3 = open("aes_key.hex", "r")
+    #
+
+
+
+    aes_cipher = codecs.decode(f1.read(),"hex")
+    # aes_iv = f2.read().decode("hex")
+    # aes_key=f3.read().decode("hex")
+    #
+    #
+    #
+    #
+    # obj=AES.new(aes_key,AES.MODE_CBC,aes_iv)
+    # result=obj.decrypt(aes_cipher)
+    # print(result)
+    #
+    # f = open("solution02.txt", "w")
+    # f.write(result)
+
+
+    aes_pri=""
+    for i in range(0,251):
+        aes_pri+="0"
+
+    aes_iv=""
+    for i in range(0,256):
+        aes_iv+="0"
+
+    print(len(aes_iv))
+    aes_iv = codecs.decode(aes_iv, "hex")
+
+    # aes_iv=codecs.decode(aes_iv,"hex")
+    # aes_iv = aes_iv.decode("hex")
+    # aes_iv = aes_iv.decode("hex")
+
+    for i in range(0,31):
+        aes_key=aes_pri+str(i)
+        aes_key= codecs.decode(aes_key, "hex")
+        # print(aes_iv)
+
+    #     aes_key=  i
+    #     # strHex = "0x%0.2X" % i
+    #     # print(strHex)
+    #     # aes_key= aes_key.decode("hex")
+    #
+    #     print(aes_key)
+    #     # print(type(aes_key))
+    #
+        obj = AES.new(aes_key, AES.MODE_CBC, aes_iv)
+        result=obj.decrypt(aes_cipher)
+
+    # obj2 = AES.new('This is a key123', AES.MODE_CBC, aes_iv)
+
+    # print(len(bytes("This is an IV45")))
+
+
+
+
+
+
+    # result=
+    # print(result)
+
+
+if __name__ == "__main__":
+    main()

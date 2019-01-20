@@ -1,0 +1,254 @@
+Python exercises (Taken from http://www.learnpython.org/en)
+--------------------------------------------------------
+
+Install python 
+
+...................
+print 'hello world'
+...................
+
+Lists
+=====================
+Lists are very similar to arrays. They can contain any type of variable, and they can contain as many variables
+as you wish. Lists can also be iterated over in a very simple manner. Here is an example of how to build a list.
+
+Example
+-----------------
+mylist = []
+mylist.append(1)
+mylist.append(2)
+mylist.append(3)
+print(mylist[0]) # prints 1
+print(mylist[1]) # prints 2
+print(mylist[2]) # prints 3
+
+# prints out 1,2,3
+for x in mylist:
+    print x
+-----------------
+
+Accessing an index which does not exist generates an exception (an error).
+----------------
+mylist = [1,2,3]
+print(mylist[10])
+---------------
+
+Exercise 1.1
+-------------------
+In this exercise, you will need to add numbers and strings to the correct lists using the "append" list method.
+You must add the numbers 1,2, and 3 to the "numbers" list, and the words 'hello' and 'world' to the strings variable.
+You will also have to fill in the variable second_name with the second name in the names list, using the brackets 
+operator []. Note that the index is zero-based, so if you want to access the second item in the list, its index will be 1.
+
+------------------------------
+numbers = []
+strings = []
+names = ["John", "Eric", "Jessica"]
+
+# write your code here
+second_name = None
+
+# this code should write out the filled arrays and the second name in the names list (Eric).
+print(numbers)
+print(strings)
+print("The second name on the names list is %s" % second_name)
+
+
+Using Operators with Strings
+=============================
+Python supports concatenating strings using the addition operator:
+
+-----------------------------------
+helloworld = "hello" + " " + "world"
+----------------------------------
+
+Python also supports multiplying strings to form a string with a repeating sequence:
+--------------------------------
+lotsofhellos = "hello" * 10
+--------------------------------
+
+Using Operators with Lists
+===============================
+Lists can be joined with the addition operators:
+---------------------------
+even_numbers = [2,4,6,8]
+odd_numbers = [1,3,5,7]
+all_numbers = odd_numbers + even_numbers
+---------------------------
+
+Just as in strings, Python supports forming new lists with a repeating sequence using the multiplication operator:
+--------------------------
+print [1,2,3] * 3
+--------------------------
+
+Exercise 1.2
+-----------------------
+The target of this exercise is to create two lists called x_list and y_list, which contain 10 instances of 
+the variables x and y, respectively. You are also required to create a list called big_list, 
+which contains the variables x and y, 10 times each, by concatenating the two lists you have created.
+------------------------------
+x = object()
+y = object()
+
+# TODO: change this code
+x_list = [x]
+y_list = [y]
+big_list = []
+
+print "x_list contains %d objects" % len(x_list)
+print "y_list contains %d objects" % len(y_list)
+print "big_list contains %d objects" % len(big_list)
+
+# testing code
+if x_list.count(x) == 10 and y_list.count(y) == 10:
+    print "Almost there..."
+if big_list.count(x) == 10 and big_list.count(y) == 10:
+    print "Great!"
+--------------------------------
+
+Basic String Operations
+==========================
+Strings are bits of text. They can be defined as anything between quotes:
+------------------------
+astring = "Hello world!"
+astring2 = 'Hello world!'
+------------------------
+As you can see, the first thing you learned was printing a simple sentence. This sentence was stored by 
+Python as a string. However, instead of immediately printing strings out, we will explore the various 
+things you can do to them. You can also use single quotes to assing a string. However, you will face problems 
+if the value to be assigned itself contains single quotes.For example to assign the string in these 
+bracket(single quotes are ' ') you need to use double quotes only like this
+---------------------------
+print "single quotes are ' '"
+
+print len(astring)
+--------------------------
+That prints out 12, because "Hello world!" is 12 characters long, including punctuation and spaces.
+
+--------------------------
+print astring.index("o")
+-------------------------
+
+That prints out 4, because the location of the first occurrence of the letter "o" is 4 characters away from the
+first character. Notice how there are actually two o's in the phrase - this method only recognizes the first.
+
+But why didn't it print out 5? Isn't "o" the fifth character in the string? To make things more simple, 
+Python (and most other programming languages) start things at 0 instead of 1. So the index of "o" is 4.
+------------------------
+print astring.count("l")
+-----------------------
+
+For those of you using silly fonts, that is a lowercase L, not a number one. This counts the number of l's in the
+string. Therefore, it should print 3.
+
+-----------------------
+print astring[3:7]
+-----------------------
+
+This prints a slice of the string, starting at index 3, and ending at index 6. But why 6 and not 7? Again, 
+most programming languages do this - it makes doing math inside those brackets easier.
+
+If you just have one number in the brackets, it will give you the single character at that index. If you leave 
+out the first number but keep the colon, it will give you a slice from the start to the number you left in. 
+If you leave out the second number, if will give you a slice from the first number to the end.
+You can even put negative numbers inside the brackets. They are an easy way of starting at the end of the string instead of the beginning. This way, -3 means "3rd character from the end".
+
+------------------
+print astring[3:7:2]
+-----------------
+
+This prints the characters of string from 3 to 7 skipping one character. This is extended slice syntax. The general
+ form is [start:stop:step].
+-------------------------
+print astring[3:7]
+print astring[3:7:1]
+------------------------
+
+Note that both of them produce same output
+
+There is no function like strrev in C to reverse a string. But with the above mentioned type of slice syntax you can
+easily reverse a string like this
+-------------------------
+print astring[::-1]
+------------------------
+
+What does it do?
+
+--------------------------
+print astring.upper()
+print astring.lower()
+--------------------------
+
+These make a new string with all letters converted to uppercase and lowercase, respectively.
+
+-----------------------------
+print astring.startswith("Hello")
+print astring.endswith("asdfasdfasdf")
+-----------------------------
+
+This is used to determine whether the string starts with something or ends with something, respectively. 
+The first one will print True, as the string starts with "Hello". The second one will print False, as the string 
+certainly does not end with "asdfasdfasdf".
+----------------------------------
+afewwords = astring.split(" ")
+---------------------------------
+
+This splits the string into a bunch of strings grouped together in a list. Since this example splits at a space, 
+the first item in the list will be "Hello", and the second will be "world!".
+
+Exercise 1.3
+------------------------------
+Try to fix the code to print out the correct information by changing the string.
+--------------------------------------------
+s = "Hey there! what should this string be?"
+# Length should be 20
+print "Length of s = %d" % len(s)
+
+# First occurrence of "a" should be at index 8
+print "The first occurrence of the letter a = %d" % s.index("a")
+
+# Number of a's should be 2
+print "a occurs %d times" % s.count("a")
+
+# Slicing the string into bits
+print "The first five characters are '%s'" % s[:5] # Start to 5
+print "The next five characters are '%s'" % s[5:10] # 5 to 10
+print "The twelfth character is '%s'" % s[12] # Just number 12
+print "The characters with odd index are '%s' " %s[1::2] #(0-based indexing)
+print "The last five characters are '%s'" % s[-5:] # 5th-from-last to end
+
+# Convert everything to uppercase
+print "String in uppercase: %s" % s.upper()
+
+# Convert everything to lowercase
+print "String in lowercase: %s" % s.lower()
+
+# Check how a string starts
+if s.startswith("Str"):
+    print "String starts with 'Str'. Good!"
+
+# Check how a string ends
+if s.endswith("ome!"):
+    print "String ends with 'ome!'. Good!"
+
+# Split the string into three separate strings,
+# each containing only a word
+print "Split the words of the string: %s" % s.split(" ")
+
+--------------------------------------------------------
+
+Exercise 1.4
+--------------------------------
+
+Loop through and print out all even numbers from the numbers list in the same order they are received. 
+Don't print any numbers that come after 237 in the sequence.
+
+numbers = [
+    951, 402, 984, 651, 360, 69, 408, 319, 601, 485, 980, 507, 725, 547, 544,
+    615, 83, 165, 141, 501, 263, 617, 865, 575, 219, 390, 984, 592, 236, 105, 942, 941,
+    386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345,
+    399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217,
+    815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717,
+    958, 609, 842, 451, 688, 753, 854, 685, 93, 857, 440, 380, 126, 721, 328, 753, 470,
+    743, 527
+]
