@@ -1,0 +1,5 @@
+
+"""
+blob = blob.encode("hex")
+print(blob)
+

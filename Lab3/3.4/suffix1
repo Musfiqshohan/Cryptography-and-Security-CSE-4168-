@@ -1,0 +1,6 @@
+
+"""
+from hashlib import sha256
+sha=sha256(blob).hexdigest()
+print(sha)
+

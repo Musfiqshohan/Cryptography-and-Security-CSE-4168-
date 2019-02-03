@@ -1,0 +1,5 @@
+
+if blob == "0a270c93cefc4c4c66fe2e09b82016c9f713cdd5285dae758b16e35c696f538d64bdcffcf17ec6f4ebf25581b4615e0a960c8d313b09a80a":
+  print("I come in peace.")
+if blob == "0a270c93cefc4c4c66feae09b82016c9f713cdd5285dae758b16e35c696f538d64bdcffc717ec6f4ebf25581b4615e0a960c0a313b09a80a":
+  print("Prepare to be destroyed!")

@@ -1,0 +1,23 @@
+make:
+	./fastcoll -p prefix -o col1 col2
+	cat col1 suffix1> file1.py
+	cat col2 suffix1 > file2.py
+	openssl dgst -md5 file1.py file2.py
+
+
+	cat file1.py suffix2> file01.py
+	cat file2.py suffix2 > file02.py
+
+
+
+
+	prefix
+	prefix+hash= col
+	col+ hash= col1,col2 etc
+	col+suffix1 =filex.py
+	filex.py+suffix2 = file0x.py
+
+
+	All file edit with code no manual touch . Changes md5
+	Solution idea: https://sfrolov.io/2016/09/multiple-md5-collisions
+	Took much effort though couldnt find the solution idea.
