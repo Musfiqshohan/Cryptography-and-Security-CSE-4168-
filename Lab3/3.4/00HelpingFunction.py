@@ -35,6 +35,15 @@ def addSuffix2():  # concates the suffix 2 which includes all conditions is conc
 
 
 
+
+def getAllHashCommand():
+    cmd="openssl dgst -md5 "
+    for i in range(0,64):
+        fln="file0"+str(i)+".py "
+        cmd=cmd+fln
+    print(cmd)
+
 if __name__ == '__main__':
-    main()
+    # main()
     # addSuffix2()  # call this commenting main()
+    getAllHashCommand()
